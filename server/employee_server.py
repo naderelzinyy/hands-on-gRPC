@@ -12,11 +12,7 @@ class Employees(employees_pb2_grpc.EmployeesServicer):
     def GetEmployee(self, request, context):
         """Gets employee data."""
         return employees_pb2.GetEmployeeResponse(
-            employee=[employees_pb2.Employee(
-                id="99212378623",
-                name="Winston Churchill",
-                email="churchill1945@uk.com"
-            )]
+            employee=request.employee
         )
 
     def GetEmployeeById(self, request, context):
@@ -32,21 +28,13 @@ class Employees(employees_pb2_grpc.EmployeesServicer):
     def updateEmployee(self, request, context):
         """Gets employee data."""
         return employees_pb2.UpdateEmployeeResponse(
-            employee=employees_pb2.Employee(
-                id="99212378623",
-                name="Winston Churchill",
-                email="churchill1949@uk.com"
-            )
+            employee=request.employee
         )
 
     def deleteEmployee(self, request, context):
         """Gets employee data."""
         return employees_pb2.DeleteEmployeeResponse(
-            employee=employees_pb2.Employee(
-                id="99212378623",
-                name="Winston Churchill",
-                email="churchill1945@uk.com"
-            )
+            employee=request.employee
         )
 
 
