@@ -1,0 +1,61 @@
+
+syntax = "proto3";
+
+package employees;
+
+// The greeting service definition.
+service Employees {
+  // Sends a greeting
+  rpc GetEmployee (GetEmployeeRequest) returns (GetEmployeeResponse) {}
+  rpc GetEmployeeById (GetEmployeeByIdRequest) returns (GetEmployeeByIdResponse) {}
+  rpc CreateEmployee (CreateEmployeeRequest) returns (CreateEmployeeResponse) {}
+  rpc updateEmployee (UpdateEmployeeRequest) returns (UpdateEmployeeResponse) {}
+  rpc deleteEmployee (DeleteEmployeeRequest) returns (DeleteEmployeeResponse) {}
+}
+
+message Employee{
+  string id = 1;
+  string name = 2;
+  string email = 3;
+}
+
+
+message GetEmployeeRequest{
+}
+
+message GetEmployeeResponse{
+  repeated Employee employee = 1;
+}
+
+message GetEmployeeByIdRequest{
+  string id = 1;
+}
+
+message GetEmployeeByIdResponse{
+  Employee employee = 1;
+}
+
+message CreateEmployeeRequest{
+  Employee employee = 1;
+}
+
+message CreateEmployeeResponse{
+  Employee employee = 1;
+}
+
+message UpdateEmployeeRequest{
+  Employee employee = 1;
+}
+
+message UpdateEmployeeResponse{
+  Employee employee = 1;
+}
+
+message DeleteEmployeeRequest{
+  string id = 1;
+}
+
+message DeleteEmployeeResponse{
+  Employee employee = 1;
+}
+
